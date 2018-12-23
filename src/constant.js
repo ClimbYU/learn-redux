@@ -1,0 +1,3 @@
+export const ADDBOOK = 'ADDBOOK'
+export const REMOVEBOOK = 'REMOVEBOOK'
+export const ADDBOOKASYNC = 'ADDBOOKASYNC'

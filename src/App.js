@@ -1,28 +1,28 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import {connect} from 'react-redux' 
+import {addBook, removeBook, getBookAsync} from './actions'
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <h2>我现在有{this.props.num}本书，小明有{this.props.anotherNum}本书</h2>
+        <button onClick={this.props.addBook}>我向小明借一本</button>
+        <br/>
+        <button onClick={this.props.removeBook}>小明向我借一本</button>
+        <br/>
+        <button onClick={this.props.getBookAsync}>小明过两天借我一本</button>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+    num:state.num,
+    anotherNum:state.anotherNum
+})
+
+const mapDispatchToProps = {addBook, removeBook, getBookAsync}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
