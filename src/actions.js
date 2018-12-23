@@ -9,9 +9,11 @@ export const removeBook = () => {
 }
 
 export const getBookAsync = () => {
+    console.log('dispatch')
     return (dispatch) => {
         setTimeout(() => {
+            console.log(dispatch)
             dispatch(addBook())
-        },2000)
+        },1000)
     }
 }

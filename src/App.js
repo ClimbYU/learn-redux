@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux' 
+// import {connect} from 'react-redux' 
+import {connect} from './mini-redux-react'
 import {addBook, removeBook, getBookAsync} from './actions'
 import './App.css';
 
