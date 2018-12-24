@@ -1,19 +1,23 @@
-import {ADDBOOK,REMOVEBOOK,ADDBOOKASYNC} from './constant'
+import {BORROWFROMLIB,BORROWFROMMARY,REVERTLIBRARY} from './constant'
 
-export const addBook = () => {
-    return {type:ADDBOOK}
+export const borrowFromLib = () => {
+    return {type:BORROWFROMLIB}
 }
 
-export const removeBook = () => {
-    return {type:REMOVEBOOK}
+export const borrowFromMary = () => {
+    return {type:BORROWFROMMARY}
 }
 
-export const getBookAsync = () => {
+export const revertLibrary = () => {
+    return {type:REVERTLIBRARY}
+}
+
+export const revertToLibAsync = () => {
     console.log('dispatch')
     return (dispatch) => {
         setTimeout(() => {
             console.log(dispatch)
-            dispatch(addBook())
+            dispatch(revertLibrary())
         },1000)
     }
 }

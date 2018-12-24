@@ -1,22 +1,32 @@
-import {ADDBOOK,REMOVEBOOK} from './constant'
+import {BORROWFROMLIB,BORROWFROMMARY,REVERTLIBRARY} from './constant'
 
 const defaultState = {
-    num:10,
-    anotherNum:15
+    numBob:2,
+    numMary:3,
+    color:'red',
+    total:20
 }
 
 export default (state = defaultState, actions) => {
-    const {num, anotherNum} = state
+    const {numBob, numMary, total} = state
     switch(actions.type){
-        case ADDBOOK:
+        case BORROWFROMLIB:
             return{
-                num:num + 1,
-                anotherNum: anotherNum - 1
+                ...state,
+                numBob:numBob + 1,
+                totla:total - 1
             }
-        case REMOVEBOOK:
+        case BORROWFROMMARY:
             return{
-                num:num - 1,
-                anotherNum: anotherNum + 1
+                ...state,
+                numBob:numBob + 1,
+                numMary: numMary - 1,
+            }
+        case REVERTLIBRARY:
+            return{
+                ...state,
+                numBob:numBob - 1,
+                totla:total + 1
             }
         default :
             return state    
