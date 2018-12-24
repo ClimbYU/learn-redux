@@ -28,8 +28,8 @@ export default (state = defaultState, actions) => {
                 numBob:numBob - 1,
                 totla:total + 1
             }
-        default :
-            return state    
-            
+        default:
+            return state
+
     }
 }
