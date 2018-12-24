@@ -8,46 +8,59 @@
 
 let dispatchAction = {}
 
-const createAction = (dispatch,action) => {
+const createAction = (dispatch, action) => {
     return (...args) => dispatch(action(...args))
 }
 
+/**
+ * 
+ * @param {用于触发action由connect高阶组件传入}}} dispatch 
+ * @param {需要触发的action组合} actions 
+ */
 export const createActions = (dispatch, actions) => {
+    // 将actions解析为以各个action为key的对象
     Object.keys(actions).forEach(v => {
-        dispatchAction[v] = createAction(dispatch,actions[v])
+        dispatchAction[v] = createAction(dispatch, actions[v])
     })
 
     return dispatchAction
 }
-
+/**
+ * 
+ * @param {state：全局的状态} reducer 
+ * @param {增强器用于加载中间件} enhancer 
+ */
 export const createStore = (reducer, enhancer) => {
-    if(enhancer){
-      return enhancer(createStore)(reducer)
+    if (enhancer) {
+        return enhancer(createStore)(reducer)
     }
     let currentStore
     let currentAction = []
-    function getState(){
+    function getState() {
         return currentStore
     }
 
-    function subscribe(listener){
+    function subscribe(listener) {
         currentAction.push(listener)
     }
 
-    function dispatch(action){
+    function dispatch(action) {
         currentStore = reducer(currentStore, action)
         currentAction.forEach(v => v())
-        
+
         return action
     }
+    // 需要触发一次用于state的初始化
+    dispatch({ type: '@REDUX/STORE/INIT' })
 
-    dispatch({type:'@REDUX/STORE/INIT'})
-
-    return {getState, subscribe, dispatch}
+    return { getState, subscribe, dispatch }
 
 }
 
-
+/**
+ * 
+ * @param  {中间件集合} middlewares 
+ */
 export const applyMiddleware = (...middlewares) => {
     return createStore => (...args) => {
         const store = createStore(...args)
@@ -61,8 +74,6 @@ export const applyMiddleware = (...middlewares) => {
         // dispatch = middleware(midApi)(store.dispatch)
         let middlewareChain = middlewares.map(middleware => middleware(midApi))
         dispatch = compose(...middlewareChain)(store.dispatch)
-        // fn1(fn2(fn3))
-        // console.log(dispatch)
         return {
             ...store,
             dispatch
@@ -71,13 +82,13 @@ export const applyMiddleware = (...middlewares) => {
 }
 
 export const compose = (...funcs) => {
-	if (funcs.length==0) {
-		return arg=>arg
-	}
-	if (funcs.length==1) {
-		return funcs[0]
-	}
-	return funcs.reduce((ret,item)=> (...args)=>ret(item(...args)))
+    if (funcs.length == 0) {
+        return arg => arg
+    }
+    if (funcs.length == 1) {
+        return funcs[0]
+    }
+    return funcs.reduce((ret, item) => (...args) => ret(item(...args)))
 }
 
 
