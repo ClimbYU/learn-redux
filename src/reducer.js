@@ -1,4 +1,4 @@
-import {BORROWFROMLIB,BORROWFROMMARY,REVERTLIBRARY} from './constant'
+import {BORROWFROMLIB1, BORROWFROMLIB2, BORROWFROMMARY, REVERTLIBRARY, BORROWFROMBOB, CHANGECOLOR} from './constant'
 
 const defaultState = {
     numBob:2,
@@ -9,12 +9,19 @@ const defaultState = {
 
 export default (state = defaultState, actions) => {
     const {numBob, numMary, total} = state
+    console.log(numBob, numMary, total)
     switch(actions.type){
-        case BORROWFROMLIB:
+        case BORROWFROMLIB1:
             return{
                 ...state,
                 numBob:numBob + 1,
-                totla:total - 1
+                total:total - 1
+            }
+        case BORROWFROMLIB2:
+            return{
+                ...state,
+                numMary:numMary + 1,
+                total:total - 1
             }
         case BORROWFROMMARY:
             return{
@@ -26,7 +33,18 @@ export default (state = defaultState, actions) => {
             return{
                 ...state,
                 numBob:numBob - 1,
-                totla:total + 1
+                total:total + 1
+            }
+        case BORROWFROMBOB:
+            return {
+                ...state,
+                numBob:numBob - 1,
+                numMary: numMary + 1,
+            }
+        case CHANGECOLOR:
+            return {
+                ...state,
+                color:'#92e6ea'
             }
         default:
             return state

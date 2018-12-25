@@ -5,7 +5,8 @@ class Library extends React.Component{
     render(){
         return(
             <div style={{backgroundColor:this.props.color}}>
-                图书馆有{this.props.total}本书
+                <h2>图书馆</h2>
+                <div>有{this.props.total}本书</div>
             </div>
         )
     }

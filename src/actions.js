@@ -1,15 +1,27 @@
-import {BORROWFROMLIB,BORROWFROMMARY,REVERTLIBRARY} from './constant'
+import {BORROWFROMLIB1, BORROWFROMLIB2, BORROWFROMMARY,REVERTLIBRARY,BORROWFROMBOB, CHANGECOLOR} from './constant'
 
-export const borrowFromLib = () => {
-    return {type:BORROWFROMLIB}
+export const borrowFromLibMary = () => {
+    return {type:BORROWFROMLIB2}
+}
+
+export const borrowFromLibBob = () => {
+    return {type:BORROWFROMLIB1}
 }
 
 export const borrowFromMary = () => {
     return {type:BORROWFROMMARY}
 }
 
-export const revertLibrary = () => {
+export const revertToLib = () => {
     return {type:REVERTLIBRARY}
+}
+
+export const borrowFromBob = () => {
+    return {type:BORROWFROMBOB}
+}
+
+export const changeColor = () => {
+    return {type:CHANGECOLOR}
 }
 
 export const revertToLibAsync = () => {
@@ -17,7 +29,7 @@ export const revertToLibAsync = () => {
     return (dispatch) => {
         setTimeout(() => {
             console.log(dispatch)
-            dispatch(revertLibrary())
+            dispatch(revertToLib())
         },1000)
     }
 }

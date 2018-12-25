@@ -1,30 +1,37 @@
 import React from 'react'
 import {connect} from './mini-redux-react'
+import {
+    borrowFromLibBob,
+    borrowFromMary,
+    revertToLib,
+    revertToLibAsync
+} from './actions'
 
-class Mary extends React.Component{
+
+class Bob extends React.Component{
     render(){
         return(
-            <div style={{backgroundColor:this.props.color}}>
-                <h2>Bob有{this.props.num}本书</h2>
-                <button onClick={this.props.borrowFromLib}>去图书馆借一本书</button>
+            <div style={{backgroundColor:this.props.color,border:'green'}}>
+                <h2>Bob有{this.props.numBob}本书</h2>
+                <button onClick={this.props.borrowFromLibBob}>去图书馆借一本书</button>
                 <button onClick={this.props.borrowFromMary}>向Mary借一本书</button>
                 <button onClick={this.props.revertToLib}>归还图书馆</button>
-                <button onClick={this.props.revertToLibAsync}>归还图书馆</button>
+                <button onClick={this.props.revertToLibAsync}>过两天归还图书馆</button>
             </div>
         )
     }
 }
 
 const mapStateToProps = state => ({
-    total:state.total,
+    numBob:state.numBob,
     color:state.color
 })
 
 const mapDispatchToProps = {
-    borrowFromLib,
+    borrowFromLibBob,
     borrowFromMary,
     revertToLib,
     revertToLibAsync
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Mary)
+export default connect(mapStateToProps,mapDispatchToProps)(Bob)
