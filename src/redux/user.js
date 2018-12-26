@@ -1,14 +1,15 @@
 import { LOGIN } from '../constant'
 
 const defaultState = {
-    users: []
+    users: {}
 }
 
 export default (state = defaultState, action) => {
     let { users } = defaultState
+    console.log(action)
     switch (action.type) {
         case LOGIN:
-            users.push(action.payload)
+            users[action.payload] = true
             return {
                 ...state,
                 users: users

@@ -12,7 +12,7 @@ import {
 class Mary extends React.Component {
     render() {
         const content =
-            this.props.user.users['Bob'] ? (
+            this.props.user.users['Mary'] ? (
                 <div>
                     <button onClick={this.props.borrowFromLibMary}>去图书馆借一本书</button>
                 </div>
