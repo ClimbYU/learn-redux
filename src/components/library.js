@@ -1,10 +1,9 @@
 import React from 'react'
-// import { connect } from '../mini-redux/mini-redux-react'
-import { connect } from 'react-redux'
+import { connect } from '../mini-redux/mini-redux-react'
+// import { connect } from 'react-redux'
 
 class Library extends React.Component {
     render() {
-        console.log('Library')
         return (
             <div style={{ backgroundColor: this.props.own.color }}>
                 <h2>图书馆</h2>
@@ -16,8 +15,5 @@ class Library extends React.Component {
     }
 }
 
-const mapStateToProps = state => {
-    console.log(state)
-    return { ...state }
-}
+const mapStateToProps = state => ({ ...state })
 export default connect(mapStateToProps)(Library)

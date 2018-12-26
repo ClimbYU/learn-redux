@@ -1,6 +1,6 @@
 import React from 'react'
-// import { connect } from '../mini-redux/mini-redux-react'
-import { connect } from 'react-redux'
+import { connect } from '../mini-redux/mini-redux-react'
+// import { connect } from 'react-redux'
 import {
     borrowFromLibMary,
     borrowFromBob,

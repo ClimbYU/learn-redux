@@ -1,6 +1,6 @@
 import React from 'react'
-// import { connect } from '../mini-redux/mini-redux-react'
-import { connect } from 'react-redux'
+import { connect } from '../mini-redux/mini-redux-react'
+// import { connect } from 'react-redux'
 import {
     borrowFromLibBob,
     borrowFromMary,
@@ -34,10 +34,7 @@ class Bob extends React.Component {
     }
 }
 
-const mapStateToProps = state => {
-    console.log(state)
-    return { ...state }
-}
+const mapStateToProps = state => ({ ...state })
 
 const mapDispatchToProps = {
     borrowFromLibBob,

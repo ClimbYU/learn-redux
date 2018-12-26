@@ -25,12 +25,10 @@ export const changeColor = () => {
 }
 
 export const login = (user) => {
-    console.log(user)
     return { type: LOGIN, payload: user }
 }
 
 export const revertToLibAsync = () => {
-    console.log('dispatch')
     return (dispatch) => {
         setTimeout(() => {
             dispatch(revertToLib())

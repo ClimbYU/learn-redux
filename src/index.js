@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux'
+// import { Provider } from 'react-redux'
 // import { createStore, applyMiddleware } from 'redux'
 // import { compose } from 'redux'
 // import thunk from 'redux-thunk'
 import { createStore, applyMiddleware } from './mini-redux/mini-redux'
-// import Provider from './mini-redux/mini-redux-react'
+import Provider from './mini-redux/mini-redux-react'
 import thunk from './mini-redux/mini-thunk'
 import './index.css';
 import App from './App';
