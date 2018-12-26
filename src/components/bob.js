@@ -34,7 +34,10 @@ class Bob extends React.Component {
     }
 }
 
-const mapStateToProps = state => ({ ...state })
+const mapStateToProps = state => {
+    console.log(state)
+    return { ...state }
+}
 
 const mapDispatchToProps = {
     borrowFromLibBob,

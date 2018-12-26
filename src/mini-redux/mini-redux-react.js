@@ -8,6 +8,7 @@ import { createActions } from './mini-redux'
  * @param {action转化} mapDispatchToProps 
  */
 export const connect = (mapStateToProps = state => state, mapDispatchToProps = {}) => (WrapComponent) => {
+    console.log('mapStateToProps', WrapComponent)
     return class ConnectComponent extends React.Component {
         static contextTypes = {
             store: PropTypes.object
@@ -30,6 +31,7 @@ export const connect = (mapStateToProps = state => state, mapDispatchToProps = {
         update() {
             const { store } = this.context
             const storeProps = mapStateToProps(store.getState())
+            console.log('storeProps', storeProps)
             const dispatchActions = createActions(store.dispatch, mapDispatchToProps)
             this.setState({
                 props: {

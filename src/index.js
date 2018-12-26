@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
-import { createStore, applyMiddleware } from 'redux'
-import { compose } from 'redux'
+// import { createStore, applyMiddleware } from 'redux'
+// import { compose } from 'redux'
 // import thunk from 'redux-thunk'
-// import { createStore, applyMiddleware } from './mini-redux/mini-redux'
+import { createStore, applyMiddleware } from './mini-redux/mini-redux'
 // import Provider from './mini-redux/mini-redux-react'
 import thunk from './mini-redux/mini-thunk'
 import './index.css';
@@ -13,12 +13,11 @@ import reducers from './redux/reducer'
 import * as serviceWorker from './serviceWorker';
 
 
-const store = createStore(reducers, compose(
-    applyMiddleware(thunk),
-    window.devToolsExtension ? window.devToolsExtension() : f => f
-))
-// const store = createStore(reducers, applyMiddleware(thunk))
-
+// const store = createStore(reducers, compose(
+//     applyMiddleware(thunk),
+//     window.devToolsExtension ? window.devToolsExtension() : f => f
+// ))
+const store = createStore(reducers, applyMiddleware(thunk))
 ReactDOM.render(
     <Provider store={store}>
         <App />

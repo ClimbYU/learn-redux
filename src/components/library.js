@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 class Library extends React.Component {
     render() {
-        console.log(this.props)
+        console.log('Library')
         return (
             <div style={{ backgroundColor: this.props.own.color }}>
                 <h2>图书馆</h2>
@@ -16,7 +16,8 @@ class Library extends React.Component {
     }
 }
 
-const mapStateToProps = state => ({ ...state })
-
-
+const mapStateToProps = state => {
+    console.log(state)
+    return { ...state }
+}
 export default connect(mapStateToProps)(Library)
