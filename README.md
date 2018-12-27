@@ -60,5 +60,6 @@ applyMiddleware的存在使得redux使用中间件成为可能。applyMiddleware
 ### redux的combineReducers
 combineReducers的作用是可以将一系列的reduxer整合成一个reducer
 ### React-redux
+react-redux实际就是将react的context进行了封装，使的用户改变context的途径只有action这一种，增强了应用的安全性及可追踪性。
 
 
