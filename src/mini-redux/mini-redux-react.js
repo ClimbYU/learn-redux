@@ -4,8 +4,8 @@ import { createActions } from './mini-redux'
 
 /**
  * connect为高阶组件将组件获取context，转化state及action
- * @param {获取状态} mapStateToProps 
- * @param {action转化} mapDispatchToProps 
+ * @param {Function} mapStateToProps 
+ * @param {Object}} mapDispatchToProps 
  */
 export const connect = (mapStateToProps = state => state, mapDispatchToProps = {}) => (WrapComponent) => {
     return class ConnectComponent extends React.Component {

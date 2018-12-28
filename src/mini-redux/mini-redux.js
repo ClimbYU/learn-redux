@@ -14,8 +14,8 @@ const createAction = (dispatch, action) => {
 
 /**
  * 
- * @param {用于触发action由connect高阶组件传入}}} dispatch 
- * @param {需要触发的action组合} actions 
+ * @param {Function} dispatch 
+ * @param {Object} actions 
  */
 export const createActions = (dispatch, actions) => {
     // 将actions解析为以各个action为key的对象
@@ -27,8 +27,8 @@ export const createActions = (dispatch, actions) => {
 }
 /**
  * 
- * @param {state：全局的状态} reducer 
- * @param {增强器用于加载中间件} enhancer 
+ * @param {Function} reducer 
+ * @param {Function} enhancer
  */
 export const createStore = (reducer, enhancer) => {
     if (enhancer) {
@@ -59,7 +59,7 @@ export const createStore = (reducer, enhancer) => {
 
 /**
  * 
- * @param  {中间件集合} middlewares 
+ * @param  {Array} middlewares 
  */
 export const applyMiddleware = (...middlewares) => {
     return createStore => (...args) => {
