@@ -4,7 +4,7 @@ const defaultState = {
     numBob: 2,
     numMary: 3,
     color: '#108ee9',
-    total: 20
+    total: 5
 }
 
 export default (state = defaultState, actions) => {

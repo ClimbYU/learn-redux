@@ -15,7 +15,7 @@ class Bob extends React.Component {
         const content =
             this.props.user.users['Bob'] ? (
                 <div>
-                    <button onClick={this.props.borrowFromLibBob}>去图书馆借一本书</button>
+                    {this.props.own.total > 0 ? <button onClick={this.props.borrowFromLibBob}>去图书馆借一本书</button> : ''}
                     <button onClick={this.props.revertToLib}>归还图书馆</button>
                     <button onClick={this.props.revertToLibAsync}>过两天归还图书馆</button>
                 </div>
@@ -27,7 +27,7 @@ class Bob extends React.Component {
         return (
             <div style={{ backgroundColor: this.props.own.color, border: 'green' }}>
                 <h2>Bob有{this.props.own.numBob}本书</h2>
-                <button onClick={this.props.borrowFromMary}>向Mary借一本书</button>
+                {this.props.own.numMary > 0 ? <button onClick={this.props.borrowFromMary}>向Mary借一本书</button> : ''}
                 {content}
             </div>
         )
