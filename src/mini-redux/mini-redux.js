@@ -68,7 +68,7 @@ export const applyMiddleware = (...middlewares) => {
 
         const midApi = {
             getState: store.getState,
-            dispatch: (...args) => dispatch(...args)
+            dispatch: (action) => dispatch(action)
         }
 
         // dispatch = middleware(midApi)(store.dispatch)
