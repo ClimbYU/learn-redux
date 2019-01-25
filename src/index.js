@@ -7,6 +7,7 @@ import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from './mini-redux/mini-redux'
 import Provider from './mini-redux/mini-redux-react'
 import thunk from './mini-redux/mini-thunk'
+import log from './mini-redux/reudx-log'
 import './index.css';
 import App from './App';
 import reducers from './redux/reducer'
@@ -17,7 +18,7 @@ import * as serviceWorker from './serviceWorker';
 //     applyMiddleware(thunk),
 //     window.devToolsExtension ? window.devToolsExtension() : f => f
 // ))
-const store = createStore(reducers, applyMiddleware(thunk))
+const store = createStore(reducers, applyMiddleware(thunk, log))
 ReactDOM.render(
     <Provider store={store}>
         <App />

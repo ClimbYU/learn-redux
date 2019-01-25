@@ -90,7 +90,11 @@ export const compose = (...funcs) => {
     }
     return funcs.reduce((ret, item) => (...args) => ret(item(...args)))
 }
-
+// dispatch = f1(f2(f3(store.dispatch))));
+// 另一种写法
+// function compose(...funcs) {
+//     return arg => funcs.reduceRight((composed, f) => f(composed), arg);
+// }
 
 export const combineReducers = (reducers) => {
     const reducerKeys = Object.keys(reducers)
